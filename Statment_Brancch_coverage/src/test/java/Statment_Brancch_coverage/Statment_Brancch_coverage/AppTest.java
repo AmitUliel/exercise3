@@ -88,36 +88,67 @@ public class AppTest {
 		String result = WeakClass.weakMethod2(x, y);
 		assertEquals(expected, result);
 	}
-	
+
 	// cover 100% branches but didn't found the problem
 	@Test
 	public void branchCoverage_Full_didNotFind1() {
 		int x = 5;
 		int y = 3;
-		
-		String expected = Integer.toString((y-1)/(x-1));
-		String result = WeakClass.weakMethod2(x, y);
-		assertEquals(expected, result);
-	}
-	
-	@Test
-	public void branchCoverage_Full_didNotFind2() {
-		int x = 10;
-		int y = 1;
-		
-		String expected = Integer.toString((y-1) + 2);
-		String result = WeakClass.weakMethod2(x, y);
-		assertEquals(expected, result);
-	}
-	
-	@Test
-	public void branchCoverage_Full_didNotFind3() {
-		int x = 5;
-		int y = 14;
-		
-		String expected = Integer.toString(((y-1)/(x-1)) + 2);
+
+		String expected = Integer.toString((y - 1) / (x - 1));
 		String result = WeakClass.weakMethod2(x, y);
 		assertEquals(expected, result);
 	}
 
+	@Test
+	public void branchCoverage_Full_didNotFind2() {
+		int x = 10;
+		int y = 1;
+
+		String expected = Integer.toString((y - 1) + 2);
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void branchCoverage_Full_didNotFind3() {
+		int x = 5;
+		int y = 14;
+
+		String expected = Integer.toString(((y - 1) / (x - 1)) + 2);
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
+	}
+
+	// 100% statements AND <100% branches coverage and did not found the problem
+	@Test
+	public void sFull_bNotFull_didNotFind() {
+		int x = 10;
+		int y = 2;
+
+		String expected = Integer.toString((y + 1) / (x - 1));
+		String result = WeakClass.weakMethod3(x, y);
+		assertEquals(expected, result);
+	}
+
+	// 100% branches coverage and found the problem
+	@Test
+	public void bFull_Find() {
+		int x = 1;
+		int y = 4;
+
+		String expected = Integer.toString((y + 1) / (x - 1));
+		String result = WeakClass.weakMethod3(x, y);
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void bFull_Find2() {
+		int x = 0;
+		int y = 3;
+
+		String expected = Integer.toString(y/x);
+		String result = WeakClass.weakMethod3(x, y);
+		assertEquals(expected, result);
+	}
 }
