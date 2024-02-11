@@ -44,4 +44,14 @@ public class WeakClass {
 			return Integer.toString(y+2);
 		}
 	}
+	
+	public static String weakMethod3(int x, int y) {
+		
+		if(y%2 == 0)
+		{
+			x -= 1;
+			y += 1;
+		}
+		return Integer.toString(y/x);
+	}
 }
