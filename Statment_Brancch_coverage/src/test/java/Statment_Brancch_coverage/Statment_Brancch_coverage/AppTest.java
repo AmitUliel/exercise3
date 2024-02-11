@@ -48,8 +48,7 @@ public class AppTest {
 
 	// didn't cover 100% statements but found the problem
 	@Test
-	public void statementCoverage_notFull_Find()
-	{
+	public void statementCoverage_notFull_Find() {
 		int x = 1;
 		int y = 3;
 
@@ -72,7 +71,7 @@ public class AppTest {
 		int result = WeakClass.weakMethod1(x, y);
 		assertEquals(expected, result);
 	}
-	
+
 	@Test
 	public void statementCoverage_100_didntFind2() {
 		int x = 8;
@@ -82,15 +81,19 @@ public class AppTest {
 		int result = WeakClass.weakMethod1(x, y);
 		assertEquals(expected, result);
 	}
-	
+
 	@Test
 	public void branchCoverage_notFull_Find() {
-		int x = 8;
-		int y = 1;
+		int x = 1;
+		int y = 5;
 
-		int expected = 0;
-		int result = WeakClass.weakMethod1(x, y);
-		assertEquals(expected, result);
+		try {
+			WeakClass.weakMethod1(x, y);
+			fail("Expected ArithmeticException to be thrown");
+		} catch (ArithmeticException e) {
+			// Assert that the exception message is correct
+			assertEquals("Can't divide by 0", e.getMessage());
+		}
 	}
-	
+
 }
