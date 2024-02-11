@@ -1,42 +1,47 @@
 package Statment_Brancch_coverage.Statment_Brancch_coverage;
 
 public class WeakClass {
-	
-	public static int weakMethod1(int x , int y) throws ArithmeticException
-	{
+
+	// i need to know when i find the error what should i return ?
+	public static String weakMethod1(int x, int y) throws ArithmeticException{
 		x -= 1;
 		y -= 1;
 		
-		if(x==0 || y == 0)
+		if (x == 0 || y == 0) 
 		{
-			if(x==0) throw new ArithmeticException("Can't divide by 0");
 			
-			y/=x;
-			return y;
+			y /= x;
+			return Integer.toString(y);
 		}
-		
-		else
+
+		else 
 		{
-			return y + 2;
+			return Integer.toString(y+2);
 		}
 	}
-	
-	public static int weakMethod2(int x , int y) throws ArithmeticException
-	{
+
+	public static String weakMethod2(int x, int y) {
 		x -= 1;
 		y -= 1;
-		
-		if(x==0 || y == 0)
-		{
-			if(x==0 && y >= 10) throw new ArithmeticException("Can't divide by 0");
-			
-			y/=x;
-			return y;
+
+		if (x == 0 || y == 0) {
+			if (x == 0)
+			{
+				try {
+					return Integer.toString((y/x)+2);
+				}
+				catch(ArithmeticException e) {
+					
+					return "Can't divide by 0";
+				}
+			}
+
+			y /= x;
+			return Integer.toString(y);
 		}
-		
-		else
-		{
-			return y + 2;
+
+		else {
+			return Integer.toString(y+2);
 		}
 	}
 }

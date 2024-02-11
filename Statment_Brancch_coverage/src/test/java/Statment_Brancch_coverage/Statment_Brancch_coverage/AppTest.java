@@ -52,13 +52,9 @@ public class AppTest {
 		int x = 1;
 		int y = 3;
 
-		try {
-			WeakClass.weakMethod1(x, y);
-			fail("Expected ArithmeticException to be thrown");
-		} catch (ArithmeticException e) {
-			// Assert that the exception message is correct
-			assertEquals("Can't divide by 0", e.getMessage());
-		}
+		String expected = "Can't divide by 0";
+		String result = WeakClass.weakMethod1(x, y);
+		assertEquals(expected, result);
 	}
 
 	// cover 100% statements but didn't found the problem
@@ -67,8 +63,8 @@ public class AppTest {
 		int x = 10;
 		int y = 7;
 
-		int expected = 8;
-		int result = WeakClass.weakMethod1(x, y);
+		String expected = Integer.toString(y + 2);
+		String result = WeakClass.weakMethod1(x, y);
 		assertEquals(expected, result);
 	}
 
@@ -77,23 +73,50 @@ public class AppTest {
 		int x = 8;
 		int y = 1;
 
-		int expected = 0;
-		int result = WeakClass.weakMethod1(x, y);
+		String expected = Integer.toString();
+		String result = WeakClass.weakMethod1(x, y);
 		assertEquals(expected, result);
 	}
 
+	// didn't cover 100% branches but found the problem
 	@Test
 	public void branchCoverage_notFull_Find() {
 		int x = 1;
 		int y = 5;
 
-		try {
-			WeakClass.weakMethod1(x, y);
-			fail("Expected ArithmeticException to be thrown");
-		} catch (ArithmeticException e) {
-			// Assert that the exception message is correct
-			assertEquals("Can't divide by 0", e.getMessage());
-		}
+		String expected = "Can't divide by 0";
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void branchCoverage_Full_didNotFind1() {
+		int x = 5;
+		int y = 3;
+		
+		String expected = Integer.toString((y-1)/(x-1));
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void branchCoverage_Full_didNotFind2() {
+		int x = 10;
+		int y = 1;
+		
+		String expected = Integer.toString((y-1) + 2);
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void branchCoverage_Full_didNotFind3() {
+		int x = 5;
+		int y = 14;
+		
+		String expected = Integer.toString(((y-1)/(x-1)) + 2);
+		String result = WeakClass.weakMethod2(x, y);
+		assertEquals(expected, result);
 	}
 
 }
