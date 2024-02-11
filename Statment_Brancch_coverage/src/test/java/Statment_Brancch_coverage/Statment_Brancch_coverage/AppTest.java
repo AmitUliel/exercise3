@@ -89,6 +89,7 @@ public class AppTest {
 		assertEquals(expected, result);
 	}
 	
+	// cover 100% branches but didn't found the problem
 	@Test
 	public void branchCoverage_Full_didNotFind1() {
 		int x = 5;
