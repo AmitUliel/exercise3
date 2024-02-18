@@ -3,55 +3,55 @@ package Statment_Brancch_coverage.Statment_Brancch_coverage;
 public class WeakClass {
 
 	// i need to know when i find the error what should i return ?
-	public static String weakMethod1(int x, int y) throws ArithmeticException{
-		x -= 1;
-		y -= 1;
-		
-		if (x == 0 || y == 0) 
-		{
-			
+	public static int weakMethod1(int x, int y){
+		if (x == 0 || y == 2) 
+		{	
+			x -= 1;		
 			y /= x;
-			return Integer.toString(y);
+			
 		}
-
-		else 
-		{
-			return Integer.toString(y+2);
-		}
+		y+=10;
+		return y;
+		
 	}
 
-	public static String weakMethod2(int x, int y) {
-		x -= 1;
-		y -= 1;
-
-		if (x == 0 || y == 0) {
-			if (x == 0)
-			{
-				try {
-					return Integer.toString((y/x)+2);
-				}
-				catch(ArithmeticException e) {
-					
-					return "Can't divide by 0";
-				}
-			}
-
-			y /= x;
-			return Integer.toString(y);
+	public static int weakMethod2(int x, int y) 
+	{	
+		if (x > 0 || y < 0) 
+		{
+			x-=2;
+			return y/x;
 		}
-
-		else {
-			return Integer.toString(y+2);
+		else
+		{
+			return x+y;
 		}
 	}
 	
-	public static String weakMethod3(int x, int y) {
+	public static int weakMethod3(int x, int y) {
 		
 		if(y%2 == 0)
 		{
-			x -= 1;
-			y += 1;
+			y = y/x;
 		}
-		return Integer.toString(y/x);
+		
+		y += 1;	
+		return y;
+	}
+	
+	public static int weakMethod4(int x, int y) {
+		
+		if(y%2 == 0 || x%2 == 0)
+		{
+			y = y/x;
+		}
+		
+		else
+		{
+			y = x/y;
+		}
+		
+		y += 1;	
+		return y;
 	}
 }
