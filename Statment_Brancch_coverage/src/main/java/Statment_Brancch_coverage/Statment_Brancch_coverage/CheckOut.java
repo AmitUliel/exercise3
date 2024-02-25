@@ -1,10 +1,10 @@
 package Statment_Brancch_coverage.Statment_Brancch_coverage;
 
 public class CheckOut {
-	public boolean checkOut(double cart, int creditRating, statusClass.Status status) {
+	public static boolean checkOut(double cart, int creditRating, statusClass.status status) {
 	    boolean approved = false;
 
-	    if (status == statusClass.Status.gold) {
+	    if (status == statusClass.status.GOLD) {
 	        if (cart < 3_500.00) {
 	            approved = true;
 	        } else {
@@ -12,7 +12,7 @@ public class CheckOut {
 	                approved = true;
 	            }
 	        }
-	    } else if (status == statusClass.Status.silver) {
+	    } else if (status == statusClass.status.SILVER) {
 	        if (cart < 2_500.00) {
 	            approved = true;
 	        } else {
