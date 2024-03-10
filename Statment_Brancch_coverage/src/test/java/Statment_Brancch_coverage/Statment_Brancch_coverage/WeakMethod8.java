@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class testWeakMethod8 {
+public class WeakMethod8 {
 	
 	@Test (expected = java.lang.ArithmeticException.class)
 	public void test_4b()
