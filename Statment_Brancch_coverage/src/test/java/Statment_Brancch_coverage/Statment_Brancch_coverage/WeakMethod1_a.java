@@ -2,13 +2,14 @@ package Statment_Brancch_coverage.Statment_Brancch_coverage;
 
 import org.junit.Test;
 
-public class WeakMethod3 {
+public class WeakMethod1_a {
+	
 	@Test (expected = java.lang.ArithmeticException.class)
-	public void test_2a()
+	public void test_1a()
 	{
-		int x = 2;
-		int y = 4;
+		int x = 1;
+		int y = 2;
 		
-		WeakClass.weakMethod2(x,y);
+		WeakClass.weakMethod1(x,y);
 	}
 }

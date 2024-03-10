@@ -1,8 +1,7 @@
 package Statment_Brancch_coverage.Statment_Brancch_coverage;
 
-public class WeakClass {
+public class WeakClass{
 
-	// i need to know when i find the error what should i return ?
 	public static int weakMethod1(int x, int y){
 		if (x == 0 || y == 2) 
 		{	
