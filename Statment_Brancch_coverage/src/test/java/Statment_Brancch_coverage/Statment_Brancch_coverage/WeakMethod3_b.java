@@ -5,40 +5,38 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class WeakMethod3_b {
-	@Test 
-	public void test_2b1()
+	
+	@Test (expected = java.lang.ArithmeticException.class)
+	public void test_3b1()
 	{
-		int x = 4;
-		int y = 4;
-		
-		int result = WeakClass.weakMethod2(x, y);
-		int expected = 2;
-		
-		assertEquals(expected, result);
+		int x = 0;
+		int y = 2;
+		WeakClass.weakMethod3(x, y);
 	}
 	
-	@Test 
-	public void test_2b2()
+	@Test
+	public void test_3b2()
 	{
-		int x = -3;
-		int y = 10;
+		int x = 1;
+		int y = 3;
 		
-		int result = WeakClass.weakMethod2(x, y);
-		int expected = 7;
+		int result = WeakClass.weakMethod3(x, y);
+		int expected = 4;
 		
 		assertEquals(expected, result);
 		
+		
 	}
 	
 	
-	@Test 
-	public void test_2b3()
+	@Test
+	public void test_3b3()
 	{
-		int x = -4;
-		int y = -4;
+		int x = 1;
+		int y = 2;
 		
-		int result = WeakClass.weakMethod2(x, y);
-		int expected = 2/3;
+		int result = WeakClass.weakMethod3(x, y);
+		int expected = 3;
 		
 		assertEquals(expected, result);
 	}

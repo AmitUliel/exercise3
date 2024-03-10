@@ -1,14 +1,20 @@
 package Statment_Brancch_coverage.Statment_Brancch_coverage;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class WeakMethod3_a {
-	@Test (expected = java.lang.ArithmeticException.class)
-	public void test_2a()
+	
+	@Test 
+	public void test_3a()
 	{
-		int x = 2;
-		int y = 4;
+		int x = 1;
+		int y = 2;
 		
-		WeakClass.weakMethod2(x,y);
+		int result = WeakClass.weakMethod3(x, y);
+		int expected = 3;
+		
+		assertEquals(expected, result);
 	}
 }
